@@ -4,7 +4,6 @@ C:\Users\Bear\Documents\My Repos\Scania\ZooSpaCodeAssignment\ZooBackend.Tests\bi
 C:\Users\Bear\Documents\My Repos\Scania\ZooSpaCodeAssignment\ZooBackend.Tests\bin\Debug\net8.0\ZooBackend.runtimeconfig.json
 C:\Users\Bear\Documents\My Repos\Scania\ZooSpaCodeAssignment\ZooBackend.Tests\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\Bear\Documents\My Repos\Scania\ZooSpaCodeAssignment\ZooBackend.Tests\bin\Debug\net8.0\appsettings.json
-C:\Users\Bear\Documents\My Repos\Scania\ZooSpaCodeAssignment\ZooBackend.Tests\bin\Debug\net8.0\ZooBackend.staticwebassets.runtime.json
 C:\Users\Bear\Documents\My Repos\Scania\ZooSpaCodeAssignment\ZooBackend.Tests\bin\Debug\net8.0\ZooBackend.exe
 C:\Users\Bear\Documents\My Repos\Scania\ZooSpaCodeAssignment\ZooBackend.Tests\bin\Debug\net8.0\testhost.exe
 C:\Users\Bear\Documents\My Repos\Scania\ZooSpaCodeAssignment\ZooBackend.Tests\bin\Debug\net8.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
@@ -107,3 +106,8 @@ C:\Users\Bear\Documents\My Repos\Scania\ZooSpaCodeAssignment\ZooBackend.Tests\ob
 C:\Users\Bear\Documents\My Repos\Scania\ZooSpaCodeAssignment\ZooBackend.Tests\obj\Debug\net8.0\ZooBackend.Tests.pdb
 C:\Users\Bear\Documents\My Repos\Scania\ZooSpaCodeAssignment\ZooBackend.Tests\obj\Debug\net8.0\ZooBackend.Tests.genruntimeconfig.cache
 C:\Users\Bear\Documents\My Repos\Scania\ZooSpaCodeAssignment\ZooBackend.Tests\obj\Debug\net8.0\ref\ZooBackend.Tests.dll
+C:\Users\Bear\Documents\My Repos\Scania\ZooSpaCodeAssignment\ZooBackend.Tests\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\Bear\Documents\My Repos\Scania\ZooSpaCodeAssignment\ZooBackend.Tests\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\Bear\Documents\My Repos\Scania\ZooSpaCodeAssignment\ZooBackend.Tests\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Bear\Documents\My Repos\Scania\ZooSpaCodeAssignment\ZooBackend.Tests\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Bear\Documents\My Repos\Scania\ZooSpaCodeAssignment\ZooBackend.Tests\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
