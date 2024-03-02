@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "b5qoaXHlmvIZSTS8RbWGRj/6xSqLJPO96XruC8bgi6aFEXS+/X9i/gUu6hVKqCnhCVQLSRfCLO+hKUKI9hfupg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Bear\\Documents\\My Repos\\Scania\\ZooSpaCodeAssignment\\ZooBackend\\ZooBackend.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Bear\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.1\\microsoft.aspnetcore.openapi.8.0.1.nupkg.sha512",
+    "C:\\Users\\Bear\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\Bear\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\Bear\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "C:\\Users\\Bear\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "C:\\Users\\Bear\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "C:\\Users\\Bear\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}
