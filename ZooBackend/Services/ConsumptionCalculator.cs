@@ -20,15 +20,15 @@ public static class ConsumptionCalculator
     {
       "meat" => individual.Weight * animal.Consumption * prices[0].Cost,
       "fruit" => individual.Weight * animal.Consumption * prices[1].Cost,
-      "both" => (HerbivoreCost(individual, animal, animal.MeatPercentage) * prices[0].Cost) + 
-                (HerbivoreCost(individual, animal, animal.FruitPercentage) * prices[1].Cost),
+      "both" => (OmnivoreConsumption(individual, animal, animal.MeatPercentage) * prices[0].Cost) + 
+                (OmnivoreConsumption(individual, animal, animal.FruitPercentage) * prices[1].Cost),
       _ => throw new ArgumentOutOfRangeException()
     };
 
     return cost;
   }
 
-  public static double HerbivoreCost(Individual individual, Animal animal, double percentage)
+  private static double OmnivoreConsumption(Individual individual, Animal animal, double percentage)
   {
     return individual.Weight * animal.Consumption * (percentage / 100.00);
   }

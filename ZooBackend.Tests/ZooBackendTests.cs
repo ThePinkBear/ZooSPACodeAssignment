@@ -58,35 +58,6 @@ public class ZooBackendTests
     Assert.Equal(0.5, individuals[13].Weight);
   }
   [Fact]
-  public void ConsumptionCalculator_should_calculate_total_cost_correctly()
-  {
-    Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
-    // Arrange
-    var individual = new Individual
-    {
-      Species = "Lion",
-      Weight = 160
-    };
-    var animal = new Animal
-    {
-      Species = "Lion",
-      Consumption = 0.10,
-      Diet = "meat",
-      MeatPercentage = 100
-    };
-    var prices = new List<Price>
-    {
-      new Price { Food = "Meat", Cost = 12.56 },
-      new Price { Food = "Fruit", Cost = 5.60 }
-    };
-
-    // Act
-    var actual = ConsumptionCalculator.CalculateCost( prices, individual, animal);
-
-    // Assert
-    Assert.Equal(200.96, Math.Round(actual, 2));
-  }
-  [Fact]
   public void Animal_should_calculate_fruit_percentage_correctly()
   {
     // Arrange
@@ -121,7 +92,64 @@ public class ZooBackendTests
     Assert.Equal(50, animal3.FruitPercentage);
   }
   [Fact]
-  public void HerbivoreCost_should_calculate_cost_correctly()
+  public void ConsumptionCalculator_should_calculate_carnivore_consumption_correctly()
+  {
+    Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+    // Arrange
+    var individual = new Individual
+    {
+      Species = "Lion",
+      Weight = 160
+    };
+    var animal = new Animal
+    {
+      Species = "Lion",
+      Consumption = 0.10,
+      Diet = "meat",
+      MeatPercentage = 100
+    };
+    var prices = new List<Price>
+    {
+      new Price { Food = "Meat", Cost = 12.56 },
+      new Price { Food = "Fruit", Cost = 5.60 }
+    };
+
+    // Act
+    var actual = ConsumptionCalculator.CalculateCost(prices, individual, animal);
+
+    // Assert
+    Assert.Equal(200.96, Math.Round(actual, 2));
+  }
+  [Fact]
+  public void ConsumptionCalculator_should_calculate_herbivore_consumption_correctly()
+  {
+    // Arrange
+    var individual = new Individual
+    {
+      Species = "Giraffe",
+      Weight = 160
+    };
+    var animal = new Animal
+    {
+      Species = "Giraffe",
+      Consumption = 0.10,
+      Diet = "fruit",
+      MeatPercentage = 0
+    };
+    var prices = new List<Price>
+    {
+      new Price { Food = "Meat", Cost = 12.56 },
+      new Price { Food = "Fruit", Cost = 5.60 }
+    };
+
+    // Act
+    var actual = ConsumptionCalculator.CalculateCost(prices, individual, animal);
+
+    // Assert
+    Assert.Equal(89.60, Math.Round(actual, 2));
+  }
+  [Fact]
+  public void ConsumptionCalculator_should_calculate_omnivore_consumption_correctly()
   {
     // Arrange
     var prices = new List<Price>
