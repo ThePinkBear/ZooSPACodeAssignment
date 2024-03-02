@@ -1,0 +1,28 @@
+<Zoo>
+  <Lions>
+    <Lion name='Simba' kg='160'/>
+      <Lion name='Nala' kg='172'/>
+      <Lion name='Mufasa' kg='190'/>
+  </Lions>
+  <Giraffes>
+    <Giraffe name='Hanna' kg='200'/>
+    <Giraffe name='Anna' kg='202'/>
+    <Giraffe name='Susanna' kg='199'/>
+  </Giraffes>
+  <Tigers>
+    <Tiger name='Dante' kg='150'/>
+    <Tiger name='Asimov' kg='142'/>
+    <Tiger name='Tolkien' kg='139'/>
+  </Tigers>
+  <Zebras>
+    <Zebra name='Chip' kg='100'/>
+    <Zebra name='Dale' kg='62'/>
+  </Zebras>
+  <Wolves>
+    <Wolf name='Pin' kg='78'/>
+    <Wolf name='Pon' kg='69'/>
+  </Wolves>
+  <Piranhas>
+    <Piranha name='Anastasia' kg='0.5'/>
+  </Piranhas>
+</Zoo>
