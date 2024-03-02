@@ -11,11 +11,18 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+void GetPrices()
+{
+  // FileReader.ReadAnimals(@".\Data\animals.csv");
+  FileReader.ReadPrices(@".\Data\prices.txt");
+}
+
 app.UseHttpsRedirection();
 
 app.MapGet("/ZooPrices", () =>
 {
-    return "Hello World!";
+  GetPrices();
+  return "Hello World!";
 })
 .WithName("GetPrices")
 .WithOpenApi();
