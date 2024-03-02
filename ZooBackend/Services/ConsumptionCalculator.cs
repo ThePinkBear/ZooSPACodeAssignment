@@ -23,9 +23,9 @@ public static class ConsumptionCalculator
       "both" =>
         (individual.Weight * animal.Consumption * (animal.MeatPercentage / 100) * prices[0].Cost) +
         (individual.Weight * animal.Consumption * (1 - (animal.MeatPercentage / 100)) * prices[1].Cost),
-      _ => 0.0
+      _ => throw new ArgumentOutOfRangeException()
     };
-
+    // Console.WriteLine($"{individual.Name} the {individual.Species} costs {cost}");
     return cost;
   }
 }
