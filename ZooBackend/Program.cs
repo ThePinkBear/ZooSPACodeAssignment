@@ -14,7 +14,8 @@ if (app.Environment.IsDevelopment())
 void GetPrices()
 {
   // FileReader.ReadAnimals(@".\Data\animals.csv");
-  FileReader.ReadPrices(@".\Data\prices.txt");
+  // FileReader.ReadIndividuals(@".\Data\zoo.xml");
+  // FileReader.ReadPrices(@".\Data\prices.txt");
 }
 
 app.UseHttpsRedirection();

@@ -1,3 +1,5 @@
+using System.Xml.Linq;
+
 public static class FileReader
 {
   public static List<Animal> ReadAnimals(string path)
@@ -38,5 +40,28 @@ public static class FileReader
       }
     }
     return prices;
+  }
+
+  public static List<Individual> ReadIndividuals(string path)
+  {
+    var individuals = new List<Individual>();
+
+    var content = File.ReadAllText(path);
+    var doc = XDocument.Parse(content);
+
+    foreach (var animal in doc.Element("Zoo")!.Elements())
+    {
+      string species = animal.Name.LocalName;
+      foreach (var individual in animal.Elements())
+      {
+        individuals.Add(new Individual
+        {
+          Species = species,
+          Name = individual.Attribute("name")!.Value,
+          Weight = Convert.ToDouble(individual.Attribute("kg")!.Value)
+        });
+      }
+    }
+    return individuals;
   }
 }
