@@ -22,10 +22,11 @@ public static class ConsumptionCalculator
       "fruit" => individual.Weight * animal.Consumption * prices[1].Cost,
       "both" =>
         (individual.Weight * animal.Consumption * (animal.MeatPercentage / 100) * prices[0].Cost) +
-        (individual.Weight * animal.Consumption * (1 - (animal.MeatPercentage / 100)) * prices[1].Cost),
+        (individual.Weight * animal.Consumption * (animal.FruitPercentage / 100) * prices[1].Cost),
       _ => throw new ArgumentOutOfRangeException()
     };
-    // Console.WriteLine($"{individual.Name} the {individual.Species} costs {cost}");
+    // Console.WriteLine($"{individual.Name} the {individual.Species} consuming {individual.Weight * animal.Consumption} costs {cost}");
+    Console.WriteLine($"{individual.Name} has a Meat consumption of {animal.MeatPercentage}% and a Fruit consumption of {animal.FruitPercentage}% and costs {cost}");
     return cost;
   }
 }

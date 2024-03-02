@@ -16,7 +16,13 @@ public static class FileReader
         Species = values[0],
         Consumption = Convert.ToDouble(values[1]),
         Diet = values[2],
-        MeatPercentage = values[3] == "" ? 0 : Convert.ToInt32(values[3].Replace("%", ""))
+        MeatPercentage = values[2] switch 
+         {
+          "meat" => 100,
+          "fruit" => 0,
+          "both" => Convert.ToInt32(values[3].Replace("%", "")),
+          _ => throw new ArgumentOutOfRangeException()
+         }
       };
       animals.Add(animal);
     }
