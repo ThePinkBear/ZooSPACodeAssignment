@@ -37,10 +37,6 @@ public static class FileReader
         prices.Add(price);
       }
     }
-    foreach (var price in prices)
-    {
-      Console.WriteLine(price.Food + " " + price.Cost);
-    }
     return prices;
   }
 }
