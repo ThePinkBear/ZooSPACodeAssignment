@@ -1,9 +1,9 @@
 namespace ZooBackend;
 
-private abstract class Animal
+public abstract class Animal
 {
-  private string Species { get; set; }
-  private string Diet { get; set; }
-  private decimal Consumption { get; set; }
-  private int MeatPercentage { get; set; }
+  public string Species { get; set; } = default!;
+  public string Diet { get; set; } = default!;
+  public decimal Consumption { get; set; }
+  public int MeatPercentage { get; set; }
 }

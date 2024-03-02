@@ -1,7 +1,7 @@
 namespace ZooBackend;
 
-internal class Price
+public class Price
 {
-  internal string Food { get; set; }
-  internal decimal Cost { get; set; }  
+  public string Food { get; set; } = default!;
+  public decimal Cost { get; set; }  
 }

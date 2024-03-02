@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "UmkLZwYb9xXCbSmYDxWK38yHRIrKJSoTURmGrO2UwBY=",
+  "Source": "ZooBackend",
+  "BasePath": "_content/ZooBackend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
