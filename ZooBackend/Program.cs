@@ -11,19 +11,16 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-void GetPrices()
+double GetPrices()
 {
-  // FileReader.ReadAnimals(@".\Data\animals.csv");
-  FileReader.ReadIndividuals(@".\Data\zoo.xml");
-  // FileReader.ReadPrices(@".\Data\prices.txt");
+  return ConsumptionCalculator.Calculate();
 }
 
 app.UseHttpsRedirection();
 
 app.MapGet("/ZooPrices", () =>
 {
-  GetPrices();
-  return "Hello World!";
+  return GetPrices();
 })
 .WithName("GetPrices")
 .WithOpenApi();

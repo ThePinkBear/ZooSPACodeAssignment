@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ZooBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6a301dc96bf5dea1474764be718b9badb2b7604c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2f8426e75301304c92536b7f901ca75a15254827")]
 [assembly: System.Reflection.AssemblyProductAttribute("ZooBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ZooBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

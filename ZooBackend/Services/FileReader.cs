@@ -51,12 +51,10 @@ public static class FileReader
 
     foreach (var animal in doc.Element("Zoo")!.Elements())
     {
-      string species = animal.Name.LocalName;
+      var species = animal.Name.LocalName;
       var firstChild = animal.Elements().FirstOrDefault();
-      if (firstChild != null)
-      {
-        species = firstChild.Name.LocalName;
-      }
+      if (firstChild != null) species = firstChild.Name.LocalName;
+      
       foreach (var individual in animal.Elements())
       {
         individuals.Add(new Individual
@@ -66,10 +64,6 @@ public static class FileReader
           Weight = Convert.ToDouble(individual.Attribute("kg")!.Value)
         });
       }
-    }
-    foreach (var individual in individuals)
-    {
-      Console.WriteLine($"{individual.Name} is a {individual.Species} weighing {individual.Weight} kg");
     }
     return individuals;
   }
