@@ -14,7 +14,7 @@ if (app.Environment.IsDevelopment())
 void GetPrices()
 {
   // FileReader.ReadAnimals(@".\Data\animals.csv");
-  // FileReader.ReadIndividuals(@".\Data\zoo.xml");
+  FileReader.ReadIndividuals(@".\Data\zoo.xml");
   // FileReader.ReadPrices(@".\Data\prices.txt");
 }
 
