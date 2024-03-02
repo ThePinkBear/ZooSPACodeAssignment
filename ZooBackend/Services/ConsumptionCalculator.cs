@@ -14,7 +14,7 @@ public static class ConsumptionCalculator
     }
     return Math.Round(totalCost, 2);
   }
-  private static double CalculateCost(List<Price> prices, Individual individual, Animal animal)
+  public static double CalculateCost(List<Price> prices, Individual individual, Animal animal)
   {
     var cost = animal.Diet switch
     {
@@ -28,8 +28,8 @@ public static class ConsumptionCalculator
     return cost;
   }
 
-  private static double HerbivoreCost(Individual individual, Animal animal, int percentage)
+  public static double HerbivoreCost(Individual individual, Animal animal, double percentage)
   {
-    return individual.Weight * animal.Consumption * (percentage / 100);
+    return individual.Weight * animal.Consumption * (percentage / 100.00);
   }
 }

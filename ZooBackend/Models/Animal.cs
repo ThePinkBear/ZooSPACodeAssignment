@@ -7,8 +7,7 @@ public class Animal
   public double Consumption { get; set; }
   public string Diet { get; set; } = default!;
   public int MeatPercentage { get; set; }
-  public int FruitPercentage => FruitPercentageCalculator();
-
+  public int FruitPercentage { get => FruitPercentageCalculator(); }
   private int FruitPercentageCalculator()
   {
     return Diet switch
