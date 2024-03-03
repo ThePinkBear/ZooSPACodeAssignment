@@ -4,11 +4,31 @@ public class ConsumptionCalculator : IConsumptionCalculator
   private List<Animal> _animals;
   private List<Price> _prices;
 
+  
   public ConsumptionCalculator(IFileReader reader)
   {
     _individuals = reader.ReadIndividuals();
     _animals = reader.ReadAnimals();
     _prices = reader.ReadPrices();
+  }
+  public List<IndividualDTO> ZooAnimals()
+  {
+    
+    var animalDTOs = new List<IndividualDTO>();
+    foreach (var individual in _individuals)
+    {
+      var animal = _animals.FirstOrDefault(a => a.Species == individual.Species)!;
+      var cost = CalculateIndividualCost(_prices, individual, animal);
+      var animalDTO = new IndividualDTO
+      {
+        Species = individual.Species,
+        Name = individual.Name,
+        Weight = individual.Weight,
+        Cost = cost
+      };
+      animalDTOs.Add(animalDTO);
+    }
+    return animalDTOs;
   }
   public double CalculateTotalCost()
   {
