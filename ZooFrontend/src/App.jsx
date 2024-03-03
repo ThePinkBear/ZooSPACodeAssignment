@@ -18,7 +18,7 @@ function App() {
 
   return (
     <>
-      <p>Hello World</p>
+      <h2>Current Cost of the Zoo animals:</h2>
       <h1>{cost}</h1>
       <ul>
         {animals.map((animal) => (
