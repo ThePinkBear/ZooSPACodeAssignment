@@ -21,6 +21,7 @@ public class ConsumptionCalculator : IConsumptionCalculator
       var cost = CalculateIndividualCost(_prices, individual, animal);
       var animalDTO = new IndividualDTO
       {
+        Id = Guid.NewGuid(),
         Species = individual.Species,
         Name = individual.Name,
         Weight = individual.Weight,
