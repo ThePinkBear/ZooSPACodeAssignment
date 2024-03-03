@@ -1,0 +1,16 @@
+.animalCard {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid #000;
+  border-radius: 0.5em;
+  margin: 0.1em;
+}
+.animalCard h3 {
+  text-decoration: underline;
+  text-align: center;
+  margin: 0.1em;
+}
+.animalCard p {
+  margin: 0.2em;
+}

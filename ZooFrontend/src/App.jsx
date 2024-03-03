@@ -1,5 +1,6 @@
 import './App.css'
 import { useEffect, useState } from 'react'
+import Individual from './Individual'
 
 function App() {
 
@@ -18,13 +19,14 @@ function App() {
 
   return (
     <>
-      <h2>Current Cost of the Zoo animals:</h2>
-      <h1>{cost}</h1>
-      <ul>
-        {animals.map((animal) => (
-          <li key={animal.id}>{animal.name}</li>
+      <h2>Welcome to the Zoo Feeding App!</h2>
+      <h3>Current Cost of the Zoo animals:</h3>
+      <h2>${cost}</h2>
+      <article>
+        {animals.map(animal => (
+          <Individual key={animal.id} animal={animal}/>
         ))}
-      </ul>
+      </article>
     </>
   )
 }
