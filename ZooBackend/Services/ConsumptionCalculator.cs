@@ -1,20 +1,26 @@
-public static class ConsumptionCalculator
+public class ConsumptionCalculator : IConsumptionCalculator
 {
-  public static double Calculate()
-  {
-    var animals = FileReader.ReadAnimals(@"..\ZooBackend\Data\animals.csv");
-    var prices = FileReader.ReadPrices(@"..\ZooBackend\Data\prices.txt");
-    var individuals = FileReader.ReadIndividuals(@"..\ZooBackend\Data\zoo.xml");
+  private List<Individual> _individuals;
+  private List<Animal> _animals;
+  private List<Price> _prices;
 
+  public ConsumptionCalculator(IFileReader reader)
+  {
+    _individuals = reader.ReadIndividuals();
+    _animals = reader.ReadAnimals();
+    _prices = reader.ReadPrices();
+  }
+  public double CalculateTotalCost()
+  {
     var totalCost = 0.0;
 
-    foreach (var individual in individuals)
+    foreach (var individual in _individuals)
     {
-      totalCost += CalculateCost(prices, individual, animals.FirstOrDefault(a => a.Species == individual.Species)!);
+      totalCost += CalculateIndividualCost(_prices, individual, _animals.FirstOrDefault(a => a.Species == individual.Species)!);
     }
     return Math.Round(totalCost, 2);
   }
-  public static double CalculateCost(List<Price> prices, Individual individual, Animal animal)
+  public double CalculateIndividualCost(List<Price> prices, Individual individual, Animal animal)
   {
     var cost = animal.Diet switch
     {
@@ -28,7 +34,7 @@ public static class ConsumptionCalculator
     return cost;
   }
 
-  private static double OmnivoreConsumption(Individual individual, Animal animal, double percentage)
+  private double OmnivoreConsumption(Individual individual, Animal animal, double percentage)
   {
     return individual.Weight * animal.Consumption * (percentage / 100.00);
   }

@@ -4,15 +4,18 @@ namespace ZooBackend.Tests;
 
 public class ZooBackendTests
 {
+  private readonly string _animalPath = @"..\..\..\..\ZooBackend\Data\animals.csv";
+  private readonly string _pricePath = @"..\..\..\..\ZooBackend\Data\prices.txt";
+  private readonly string _individualPath = @"..\..\..\..\ZooBackend\Data\zoo.xml";
+
   [Fact]
   public void FileReader_should_read_Prices_file_correctly()
   {
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     // Arrange
-    var path = @"..\..\..\..\ZooBackend\Data\prices.txt";
-
+    var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
     // Act
-    var prices = FileReader.ReadPrices(path);
+    var prices = _reader.ReadPrices();
 
     // Assert
     Assert.Equal(2, prices.Count);
@@ -26,10 +29,10 @@ public class ZooBackendTests
   {
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     // Arrange
-    var path = @"..\..\..\..\ZooBackend\Data\animals.csv";
+    var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
 
     // Act
-    var animals = FileReader.ReadAnimals(path);
+    var animals = _reader.ReadAnimals();
 
     // Assert
     Assert.Equal(6, animals.Count);
@@ -44,11 +47,11 @@ public class ZooBackendTests
   public void FileReader_should_read_Individuals_file_correctly()
   {
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
-    // Arrange
-    var path = @"..\..\..\..\ZooBackend\Data\zoo.xml";
 
+    // Arrange
+    var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
     // Act
-    var individuals = FileReader.ReadIndividuals(path);
+    var individuals = _reader.ReadIndividuals();
 
     // Assert
     Assert.Equal(14, individuals.Count);
@@ -60,6 +63,7 @@ public class ZooBackendTests
   [Fact]
   public void Animal_should_calculate_fruit_percentage_correctly()
   {
+    Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     // Arrange
     var animal = new Animal
     {
@@ -96,6 +100,9 @@ public class ZooBackendTests
   {
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     // Arrange
+    var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
+    var _calculator = new ConsumptionCalculator(_reader);
+
     var individual = new Individual
     {
       Species = "Lion",
@@ -115,7 +122,7 @@ public class ZooBackendTests
     };
 
     // Act
-    var actual = ConsumptionCalculator.CalculateCost(prices, individual, animal);
+    var actual = _calculator.CalculateIndividualCost(prices, individual, animal);
 
     // Assert
     Assert.Equal(200.96, Math.Round(actual, 2));
@@ -123,7 +130,11 @@ public class ZooBackendTests
   [Fact]
   public void ConsumptionCalculator_should_calculate_herbivore_consumption_correctly()
   {
+    Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+
     // Arrange
+    var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
+    var _calculator = new ConsumptionCalculator(_reader);
     var individual = new Individual
     {
       Species = "Giraffe",
@@ -143,7 +154,7 @@ public class ZooBackendTests
     };
 
     // Act
-    var actual = ConsumptionCalculator.CalculateCost(prices, individual, animal);
+    var actual = _calculator.CalculateIndividualCost(prices, individual, animal);
 
     // Assert
     Assert.Equal(89.60, Math.Round(actual, 2));
@@ -151,7 +162,10 @@ public class ZooBackendTests
   [Fact]
   public void ConsumptionCalculator_should_calculate_omnivore_consumption_correctly()
   {
+    Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     // Arrange
+    var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
+    var _calculator = new ConsumptionCalculator(_reader);
     var prices = new List<Price>
     {
       new Price { Food = "Meat", Cost = 12.56 },
@@ -172,7 +186,7 @@ public class ZooBackendTests
     };
 
     // Act
-    var actual = ConsumptionCalculator.CalculateCost(prices, individual, animal);
+    var actual = _calculator.CalculateIndividualCost(prices, individual, animal);
 
     // Assert
     Assert.Equal(58.13, Math.Round(actual, 2));

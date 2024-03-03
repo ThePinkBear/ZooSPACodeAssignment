@@ -1,11 +1,21 @@
 using System.Xml.Linq;
 
-public static class FileReader
+public class FileReader : IFileReader
 {
-  public static List<Animal> ReadAnimals(string path)
+  private readonly string _animalPath = "";
+  private readonly string _pricePath = "";
+  private readonly string _individualPath = "";
+
+  public FileReader(string animalPath, string pricePath, string individualPath)
+  {
+    _animalPath = animalPath;
+    _pricePath = pricePath;
+    _individualPath = individualPath;
+  }
+  public List<Animal> ReadAnimals()
   {
     var animals = new List<Animal>();
-    using var reader = new StreamReader(path);
+    using var reader = new StreamReader(_animalPath);
     string? line;
     while ((line = reader.ReadLine()) != null)
     {
@@ -28,10 +38,10 @@ public static class FileReader
     }
     return animals;
   }
-  public static List<Price> ReadPrices(string path)
+  public List<Price> ReadPrices()
   {
     var prices = new List<Price>();
-    using (var reader = new StreamReader(path))
+    using (var reader = new StreamReader(_pricePath))
     {
       string? line;
       while ((line = reader.ReadLine()) != null)
@@ -47,12 +57,11 @@ public static class FileReader
     }
     return prices;
   }
-
-  public static List<Individual> ReadIndividuals(string path)
+  public List<Individual> ReadIndividuals()
   {
     var individuals = new List<Individual>();
 
-    var content = File.ReadAllText(path);
+    var content = File.ReadAllText(_individualPath);
     var doc = XDocument.Parse(content);
 
     foreach (var animal in doc.Element("Zoo")!.Elements())
