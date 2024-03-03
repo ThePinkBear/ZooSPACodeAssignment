@@ -24,7 +24,7 @@ public class ConsumptionCalculator : IConsumptionCalculator
         Species = individual.Species,
         Name = individual.Name,
         Weight = individual.Weight,
-        Cost = cost
+        Cost = Math.Round(cost, 2)
       };
       animalDTOs.Add(animalDTO);
     }

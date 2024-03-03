@@ -15,8 +15,18 @@ double GetPrices(IFileReader reader)
 {
   return new ConsumptionCalculator(reader).CalculateTotalCost();
 }
+List<IndividualDTO> GetZooAnimals(IFileReader reader)
+{
+  return new ConsumptionCalculator(reader).ZooAnimals();
+}
 
 app.UseHttpsRedirection();
+app.MapGet("/ZooAnimals", () =>
+{
+  return GetZooAnimals(new FileReader(@".\Data\animals.csv", @".\Data\prices.txt", @".\Data\zoo.xml"));
+})
+.WithName("GetZooAnimals")
+.WithOpenApi();
 
 app.MapGet("/ZooPrices", () =>
 {
