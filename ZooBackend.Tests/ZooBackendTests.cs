@@ -191,4 +191,65 @@ public class ZooBackendTests
     // Assert
     Assert.Equal(58.13, Math.Round(actual, 2));
   }
+  [Fact]
+  public void ConsumptionCalculator_should_calculate_total_cost_correctly()
+  {
+    Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+    // Arrange
+    var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
+    var _calculator = new ConsumptionCalculator(_reader);
+
+    // Act
+    var actual = _calculator.CalculateTotalCost();
+
+    // Assert
+    Assert.Equal(1609.01, Math.Round(actual, 2));
+  }
+  [Fact]
+  public void ConsumptionCalculator_should_return_animalDTOs_correctly()
+  {
+    Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+    // Arrange
+    var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
+    var _calculator = new ConsumptionCalculator(_reader);
+
+    // Act
+    var actual = _calculator.ZooAnimals();
+
+    // Assert
+    Assert.Equal(14, actual.Count);
+    Assert.Equal("Simba", actual[0].Name);
+    Assert.Equal("Lion", actual[0].Species);
+    Assert.Equal("Piranha", actual[13].Species);
+  }
+  [Fact]
+  public void ConsumptionCalculator_should_return_animalDTOs_with_correct_cost()
+  {
+    Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+    // Arrange
+    var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
+    var _calculator = new ConsumptionCalculator(_reader);
+
+    // Act
+    var actual = _calculator.ZooAnimals();
+
+    // Assert
+    Assert.Equal(200.96, actual[0].Cost);
+    Assert.Equal(2.27, actual[13].Cost);
+  }
+  [Fact]
+  public void ConsumptionCalculator_should_return_animalDTOs_with_correct_weight()
+  {
+    Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+    // Arrange
+    var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
+    var _calculator = new ConsumptionCalculator(_reader);
+
+    // Act
+    var actual = _calculator.ZooAnimals();
+
+    // Assert
+    Assert.Equal(160, actual[0].Weight);
+    Assert.Equal(0.5, actual[13].Weight);
+  }
 }
