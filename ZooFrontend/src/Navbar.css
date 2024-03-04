@@ -1,3 +1,6 @@
+nav {
+  display: flex;
+}
 .hamburger {
   display: block;
 }
@@ -9,6 +12,12 @@
 }
 .nav-links.open {
   display: flex;
+  list-style: none;
+  padding-left: 0;
+}
+.nav-links a {
+  text-decoration: none;
+  color: rgb(189, 187, 187);
 }
 .nav-links li {
   padding: 15px 0;
