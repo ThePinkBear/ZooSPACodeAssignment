@@ -11,6 +11,10 @@
   text-align: center;
   margin: 0.1em;
 }
+.animalCard h4 {
+  margin: 0.1em;
+}
 .animalCard p {
-  margin: 0.2em;
+  margin-top: 0.1em;
+  margin-bottom: 0.3em;
 }
