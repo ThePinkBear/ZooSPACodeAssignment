@@ -246,4 +246,20 @@ public class ZooBackendTests
     Assert.Equal(160, actual[0].Weight);
     Assert.Equal(0.5, actual[13].Weight);
   }
+  [Fact]
+  public void ConsumptionCalculator_should_return_animalDTOs_with_correct_diet()
+  {
+    Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+    // Arrange
+    var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
+    var _calculator = new AnimalHandler(_reader);
+
+    // Act
+    var actual = _calculator.ZooAnimals();
+
+    // Assert
+    Assert.Equal("Carnivore", actual[0].Diet);
+    Assert.Equal("Omnivore", actual[13].Diet);
+    Assert.Equal("Herbivore", actual[5].Diet);
+  }
 }
