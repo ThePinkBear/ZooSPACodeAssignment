@@ -24,6 +24,13 @@ public class ConsumptionCalculator : IConsumptionCalculator
         Id = Guid.NewGuid(),
         Species = individual.Species,
         Name = individual.Name,
+        Diet = animal.Diet switch
+        {
+          "meat" => "Carnivore",
+          "fruit" => "Herbivore",
+          "both" => "Omnivore",
+          _ => throw new ArgumentOutOfRangeException()
+        },
         Weight = individual.Weight,
         Cost = Math.Round(cost, 2)
       };
