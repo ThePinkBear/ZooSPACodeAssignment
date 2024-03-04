@@ -19,9 +19,9 @@ function App() {
 
   return (
     <>
-      <h2>Welcome to the Zoo Feeding App!</h2>
-      <h3>Current Cost of the Zoo animals:</h3>
-      <h2>${cost}</h2>
+      <h2>Zoo Feeding App</h2>
+      <h3>Current Cost of feeding the animals:</h3>
+      <h2>${cost} per day.</h2>
       <section>
         {animals.map(animal => (
           <Individual key={animal.id} animal={animal}/>
