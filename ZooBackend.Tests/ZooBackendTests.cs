@@ -4,9 +4,9 @@ namespace ZooBackend.Tests;
 
 public class ZooBackendTests
 {
-  private readonly string _animalPath = @"..\..\..\..\ZooBackend\Data\animals.csv";
-  private readonly string _pricePath = @"..\..\..\..\ZooBackend\Data\prices.txt";
-  private readonly string _individualPath = @"..\..\..\..\ZooBackend\Data\zoo.xml";
+  private readonly string _animalPath = @"../../../../ZooBackend/Data/animals.csv";
+  private readonly string _pricePath = @"../../../../ZooBackend/Data/prices.txt";
+  private readonly string _individualPath = @"../../../../ZooBackend/Data/zoo.xml";
 
   [Fact]
   public void FileReader_should_read_Prices_file_correctly()

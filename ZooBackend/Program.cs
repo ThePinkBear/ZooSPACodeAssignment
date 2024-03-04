@@ -34,14 +34,14 @@ app.UseCors("AllowAll");
 
 app.MapGet("/ZooAnimals", () =>
 {
-  return GetZooAnimals(new FileReader(@".\Data\animals.csv", @".\Data\prices.txt", @".\Data\zoo.xml"));
+  return GetZooAnimals(new FileReader(@"./Data/animals.csv", @"./Data/prices.txt", @"./Data/zoo.xml"));
 })
 .WithName("GetZooAnimals")
 .WithOpenApi();
 
 app.MapGet("/ZooPrices", () =>
 {
-  return GetPrices(new FileReader(@".\Data\animals.csv", @".\Data\prices.txt", @".\Data\zoo.xml"));
+  return GetPrices(new FileReader(@"./Data/animals.csv", @"./Data/prices.txt", @"./Data/zoo.xml"));
 })
 .WithName("GetPrices")
 .WithOpenApi();
