@@ -1,6 +1,7 @@
 import { Routes, Route, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import Animals from './Animals'
+import Navbar from './Navbar'
 import CostInformation from './CostInformation'
 
 function App() {
@@ -31,8 +32,7 @@ function App() {
   <>
     <header>
       <nav>
-        <Link to="/">Home</Link>
-        <Link to="/animals">Animals</Link>
+        <Navbar />
       </nav>
     </header>
     <main>
