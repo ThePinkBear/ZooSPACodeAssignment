@@ -13,10 +13,12 @@ const Navbar = () => {
         <div className="hamburger" onClick={toggle}>
           &#9776;
         </div>
-        <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
-          <li><Link to="/" onClick={() => setIsOpen(false)}>Home</Link></li>
-          <li><Link to="/animals" onClick={() => setIsOpen(false)}>Animals</Link></li>
-        </ul>
+        <section className={`menu ${isOpen ? 'open' : ''}`}>
+          <ul className={`nav-links`}>
+            <li><Link to="/" onClick={() => setIsOpen(false)}>Home</Link></li>
+            <li><Link to="/animals" onClick={() => setIsOpen(false)}>Animals</Link></li>
+          </ul>
+        </section>
       </nav>
     </header>
   );
