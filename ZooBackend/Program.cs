@@ -27,15 +27,21 @@ app.UseCors("AllowZooFrontend");
 app.MapGet("/ZooAnimals", () =>
 {
   return GetZooAnimals(new FileReader(@"./Data/animals.csv", @"./Data/prices.txt", @"./Data/zoo.xml"));
-})
-.WithName("GetZooAnimals")
-.WithOpenApi();
+});
 
 app.MapGet("/ZooPrices", () =>
 {
   return GetPrices(new FileReader(@"./Data/animals.csv", @"./Data/prices.txt", @"./Data/zoo.xml"));
-})
-.WithName("GetPrices")
-.WithOpenApi();
+});
+
+app.MapGet("/ZooMeatCost", () =>
+{
+  return GetMeatCost(new FileReader(@"./Data/animals.csv", @"./Data/prices.txt", @"./Data/zoo.xml"));
+});
+
+app.MapGet("/ZooFruitCost", () =>
+{
+  return GetFruitCost(new FileReader(@"./Data/animals.csv", @"./Data/prices.txt", @"./Data/zoo.xml"));
+});
 
 app.Run();
