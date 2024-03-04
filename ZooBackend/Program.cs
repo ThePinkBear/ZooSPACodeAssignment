@@ -29,7 +29,7 @@ app.MapGet("/ZooAnimals", () =>
   return GetZooAnimals(new FileReader(@"./Data/animals.csv", @"./Data/prices.txt", @"./Data/zoo.xml"));
 });
 
-app.MapGet("/ZooPrices", () =>
+app.MapGet("/ZooTotalCost", () =>
 {
   return GetPrices(new FileReader(@"./Data/animals.csv", @"./Data/prices.txt", @"./Data/zoo.xml"));
 });
