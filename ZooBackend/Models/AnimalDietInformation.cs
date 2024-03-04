@@ -18,4 +18,22 @@ public class AnimalDietInformation
       _ => throw new ArgumentOutOfRangeException()
     };
   }
+  public double CalculateIndividualCost(List<Price> prices, Animal individual)
+  {
+    var cost = Diet switch
+    {
+      "meat" => individual.Weight * Consumption * prices[0].Cost,
+      "fruit" => individual.Weight * Consumption * prices[1].Cost,
+      "both" => (OmnivoreConsumption(individual, MeatPercentage) * prices[0].Cost) + 
+                (OmnivoreConsumption(individual, FruitPercentage) * prices[1].Cost),
+      _ => throw new ArgumentOutOfRangeException()
+    };
+
+    return cost;
+  }
+
+  private double OmnivoreConsumption(Animal individual, double percentage)
+  {
+    return individual.Weight * Consumption * (percentage / 100.00);
+  }
 }

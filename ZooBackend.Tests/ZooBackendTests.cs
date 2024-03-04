@@ -96,12 +96,10 @@ public class ZooBackendTests
     Assert.Equal(50, animal3.FruitPercentage);
   }
   [Fact]
-  public void ConsumptionCalculator_should_calculate_carnivore_consumption_correctly()
+  public void Animal_should_calculate_carnivore_consumption_correctly()
   {
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     // Arrange
-    var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
-    var _calculator = new ConsumptionCalculator(_reader);
 
     var individual = new Animal
     {
@@ -122,19 +120,17 @@ public class ZooBackendTests
     };
 
     // Act
-    var actual = _calculator.CalculateIndividualCost(prices, individual, animal);
+    var actual = animal.CalculateIndividualCost(prices, individual);
 
     // Assert
     Assert.Equal(200.96, Math.Round(actual, 2));
   }
   [Fact]
-  public void ConsumptionCalculator_should_calculate_herbivore_consumption_correctly()
+  public void Animal_should_calculate_herbivore_consumption_correctly()
   {
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
 
     // Arrange
-    var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
-    var _calculator = new ConsumptionCalculator(_reader);
     var individual = new Animal
     {
       Species = "Giraffe",
@@ -154,18 +150,16 @@ public class ZooBackendTests
     };
 
     // Act
-    var actual = _calculator.CalculateIndividualCost(prices, individual, animal);
+    var actual = animal.CalculateIndividualCost(prices, individual);
 
     // Assert
     Assert.Equal(89.60, Math.Round(actual, 2));
   }
   [Fact]
-  public void ConsumptionCalculator_should_calculate_omnivore_consumption_correctly()
+  public void Animal_should_calculate_omnivore_consumption_correctly()
   {
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     // Arrange
-    var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
-    var _calculator = new ConsumptionCalculator(_reader);
     var prices = new List<Price>
     {
       new Price { Food = "Meat", Cost = 12.56 },
@@ -186,7 +180,7 @@ public class ZooBackendTests
     };
 
     // Act
-    var actual = _calculator.CalculateIndividualCost(prices, individual, animal);
+    var actual = animal.CalculateIndividualCost(prices, individual);
 
     // Assert
     Assert.Equal(58.13, Math.Round(actual, 2));

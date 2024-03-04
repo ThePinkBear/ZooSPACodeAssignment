@@ -17,14 +17,15 @@ public class ConsumptionCalculator : IConsumptionCalculator
     var animalDTOs = new List<AnimalDTO>();
     foreach (var individual in _individuals)
     {
-      var animal = _animals.FirstOrDefault(a => a.Species == individual.Species)!;
-      var cost = CalculateIndividualCost(_prices, individual, animal);
+      var animal = _animals.FirstOrDefault(a => a.Species == individual.Species);
+      if (animal == null) continue;
+      var cost = animal.CalculateIndividualCost(_prices, individual);
       var animalDTO = new AnimalDTO
       {
         Id = Guid.NewGuid(),
         Species = individual.Species,
         Name = individual.Name,
-        Diet = animal.Diet switch
+        Diet = animal?.Diet switch
         {
           "meat" => "Carnivore",
           "fruit" => "Herbivore",
@@ -44,26 +45,8 @@ public class ConsumptionCalculator : IConsumptionCalculator
 
     foreach (var individual in _individuals)
     {
-      totalCost += CalculateIndividualCost(_prices, individual, _animals.FirstOrDefault(a => a.Species == individual.Species)!);
+      totalCost += _animals.FirstOrDefault(a => a.Species == individual.Species)!.CalculateIndividualCost(_prices, individual);
     }
     return Math.Round(totalCost, 2);
-  }
-  public double CalculateIndividualCost(List<Price> prices, Animal individual, AnimalDietInformation animal)
-  {
-    var cost = animal.Diet switch
-    {
-      "meat" => individual.Weight * animal.Consumption * prices[0].Cost,
-      "fruit" => individual.Weight * animal.Consumption * prices[1].Cost,
-      "both" => (OmnivoreConsumption(individual, animal, animal.MeatPercentage) * prices[0].Cost) + 
-                (OmnivoreConsumption(individual, animal, animal.FruitPercentage) * prices[1].Cost),
-      _ => throw new ArgumentOutOfRangeException()
-    };
-
-    return cost;
-  }
-
-  private double OmnivoreConsumption(Animal individual, AnimalDietInformation animal, double percentage)
-  {
-    return individual.Weight * animal.Consumption * (percentage / 100.00);
   }
 }
