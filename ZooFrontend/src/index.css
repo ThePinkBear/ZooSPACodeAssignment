@@ -3,17 +3,70 @@ _ {
   padding: 0;
   box-sizing: border-box;
 }
-
 :root {
 
   color-scheme: light dark;
   color: rgba(199, 196, 196, 0.87);
   background-color: #242424;
 }
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+h2 {
+  font-size: 1.5rem;
+}
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+h3 {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+section {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: auto auto;
+}
+
+@media (min-width: 576px) {
+  h2 {
+      font-size: 1.75rem;
+  }
+  h3 {
+      font-size: 1.125rem;
   }
 }
+@media (min-width: 768px) {
+  h2 {
+      font-size: 2rem;
+  }
+  h3 {
+      font-size: 1.25rem;
+  }
+  section {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto auto auto;
+  }
+}
+@media (min-width: 992px) {
+  h2 {
+      font-size: 2.5rem;
+  }
+
+  h3 {
+      font-size: 1.5rem;
+  }
+  section {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto auto auto auto auto auto;
+  }
+}
+
+
