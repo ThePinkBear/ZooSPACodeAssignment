@@ -1,12 +1,14 @@
+using static EndPointLogic;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options =>
 {
-  options.AddPolicy("AllowAll", builder =>
+  options.AddPolicy("AllowZooFrontend", builder =>
   {
-    builder.AllowAnyOrigin()
+    builder.WithOrigins("http://localhost:5173")
            .AllowAnyMethod()
            .AllowAnyHeader();
   });
@@ -20,17 +22,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-double GetPrices(IFileReader reader)
-{
-  return new ConsumptionCalculator(reader).CalculateTotalCost();
-}
-List<IndividualDTO> GetZooAnimals(IFileReader reader)
-{
-  return new ConsumptionCalculator(reader).ZooAnimals();
-}
+app.UseCors("AllowZooFrontend");
 
-app.UseHttpsRedirection();
-app.UseCors("AllowAll");
 
 app.MapGet("/ZooAnimals", () =>
 {
@@ -45,5 +38,6 @@ app.MapGet("/ZooPrices", () =>
 })
 .WithName("GetPrices")
 .WithOpenApi();
+
 
 app.Run();

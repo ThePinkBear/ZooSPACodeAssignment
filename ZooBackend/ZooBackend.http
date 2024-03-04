@@ -1,6 +1,6 @@
 @ZooBackend_HostAddress = http://localhost:5068
 
-GET {{ZooBackend_HostAddress}}/weatherforecast/
+GET {{ZooBackend_HostAddress}}/ZooPrices/
 Accept: application/json
 
 ###
