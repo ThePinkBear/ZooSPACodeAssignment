@@ -4,11 +4,11 @@ function Individual({animal}) {
 
   return (
     <>
-      <card className='animalCard'>
+      <article className='animalCard'>
         <h3>{animal.name}</h3>
         <p>Species: {animal.species}</p>
         <p>Feeding Cost: ${animal.cost}</p>
-      </card>
+      </article>
     </>
   )
 }

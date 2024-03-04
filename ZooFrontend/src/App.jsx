@@ -22,11 +22,11 @@ function App() {
       <h2>Welcome to the Zoo Feeding App!</h2>
       <h3>Current Cost of the Zoo animals:</h3>
       <h2>${cost}</h2>
-      <article>
+      <section>
         {animals.map(animal => (
           <Individual key={animal.id} animal={animal}/>
         ))}
-      </article>
+      </section>
     </>
   )
 }
