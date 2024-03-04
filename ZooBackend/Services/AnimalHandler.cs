@@ -4,7 +4,6 @@ public class AnimalHandler : IAnimalHandler
   private List<SpeciesDietInformation> _speciesInformation;
   private List<Price> _prices;
 
-  
   public AnimalHandler(IFileReader reader)
   {
     _animals = reader.ReadAnimals();
@@ -32,7 +31,6 @@ public class AnimalHandler : IAnimalHandler
     }
     return animalDTOs;
   }
-
   public double CalculateTotalCost()
   {
     var totalCost = 0.0;
