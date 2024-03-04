@@ -8,4 +8,12 @@ public static class EndPointLogic
   {
     return new AnimalHandler(reader).ZooAnimals();
   }
+  public static double GetMeatCost(IFileReader reader)
+  {
+    return new AnimalHandler(reader).CalculateMeatCost();
+  }
+  public static double GetFruitCost(IFileReader reader)
+  {
+    return new AnimalHandler(reader).CalculateFruitCost();
+  }
 }
