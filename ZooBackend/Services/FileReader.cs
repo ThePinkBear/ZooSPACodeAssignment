@@ -12,16 +12,16 @@ public class FileReader : IFileReader
     _pricePath = pricePath;
     _individualPath = individualPath;
   }
-  public List<AnimalDietInformation> ReadAnimals()
+  public List<SpeciesDietInformation> ReadSpeciesInformation()
   {
-    var animals = new List<AnimalDietInformation>();
+    var animals = new List<SpeciesDietInformation>();
     using var reader = new StreamReader(_animalPath);
     string? line;
     while ((line = reader.ReadLine()) != null)
     {
       var values = line.Split(';');
 
-      var animal = new AnimalDietInformation
+      var animal = new SpeciesDietInformation
       {
         Species = values[0],
         Consumption = Convert.ToDouble(values[1]),
@@ -57,7 +57,7 @@ public class FileReader : IFileReader
     }
     return prices;
   }
-  public List<Animal> ReadIndividuals()
+  public List<Animal> ReadAnimals()
   {
     var individuals = new List<Animal>();
 

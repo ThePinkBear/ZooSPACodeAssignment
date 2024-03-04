@@ -32,7 +32,7 @@ public class ZooBackendTests
     var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
 
     // Act
-    var animals = _reader.ReadAnimals();
+    var animals = _reader.ReadSpeciesInformation();
 
     // Assert
     Assert.Equal(6, animals.Count);
@@ -51,7 +51,7 @@ public class ZooBackendTests
     // Arrange
     var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
     // Act
-    var individuals = _reader.ReadIndividuals();
+    var individuals = _reader.ReadAnimals();
 
     // Assert
     Assert.Equal(14, individuals.Count);
@@ -65,21 +65,21 @@ public class ZooBackendTests
   {
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     // Arrange
-    var animal = new AnimalDietInformation
+    var animal = new SpeciesDietInformation
     {
       Species = "Lion",
       Consumption = 0.10,
       Diet = "meat",
       MeatPercentage = 100
     };
-    var animal2 = new AnimalDietInformation
+    var animal2 = new SpeciesDietInformation
     {
       Species = "Giraffe",
       Consumption = 0.10,
       Diet = "fruit",
       MeatPercentage = 0
     };
-    var animal3 = new AnimalDietInformation
+    var animal3 = new SpeciesDietInformation
     {
       Species = "Piranha",
       Consumption = 0.10,
@@ -106,7 +106,7 @@ public class ZooBackendTests
       Species = "Lion",
       Weight = 160
     };
-    var animal = new AnimalDietInformation
+    var animal = new SpeciesDietInformation
     {
       Species = "Lion",
       Consumption = 0.10,
@@ -136,7 +136,7 @@ public class ZooBackendTests
       Species = "Giraffe",
       Weight = 160
     };
-    var animal = new AnimalDietInformation
+    var animal = new SpeciesDietInformation
     {
       Species = "Giraffe",
       Consumption = 0.10,
@@ -171,7 +171,7 @@ public class ZooBackendTests
       Species = "Wolf",
       Weight = 70
     };
-    var animal = new AnimalDietInformation
+    var animal = new SpeciesDietInformation
     {
       Species = "Wolf",
       Consumption = 0.07,
@@ -191,7 +191,7 @@ public class ZooBackendTests
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     // Arrange
     var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
-    var _calculator = new ConsumptionCalculator(_reader);
+    var _calculator = new AnimalHandler(_reader);
 
     // Act
     var actual = _calculator.CalculateTotalCost();
@@ -205,7 +205,7 @@ public class ZooBackendTests
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     // Arrange
     var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
-    var _calculator = new ConsumptionCalculator(_reader);
+    var _calculator = new AnimalHandler(_reader);
 
     // Act
     var actual = _calculator.ZooAnimals();
@@ -222,7 +222,7 @@ public class ZooBackendTests
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     // Arrange
     var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
-    var _calculator = new ConsumptionCalculator(_reader);
+    var _calculator = new AnimalHandler(_reader);
 
     // Act
     var actual = _calculator.ZooAnimals();
@@ -237,7 +237,7 @@ public class ZooBackendTests
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     // Arrange
     var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
-    var _calculator = new ConsumptionCalculator(_reader);
+    var _calculator = new AnimalHandler(_reader);
 
     // Act
     var actual = _calculator.ZooAnimals();

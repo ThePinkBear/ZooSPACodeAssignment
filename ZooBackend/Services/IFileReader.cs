@@ -1,6 +1,6 @@
 public interface IFileReader
 {
-  List<AnimalDietInformation> ReadAnimals();
+  List<SpeciesDietInformation> ReadSpeciesInformation();
   List<Price> ReadPrices();
-  List<Animal> ReadIndividuals();
+  List<Animal> ReadAnimals();
 }
