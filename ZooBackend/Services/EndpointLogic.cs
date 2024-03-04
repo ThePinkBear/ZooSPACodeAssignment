@@ -4,7 +4,7 @@ public static class EndPointLogic
   {
     return new ConsumptionCalculator(reader).CalculateTotalCost();
   }
-  public static List<IndividualDTO> GetZooAnimals(IFileReader reader)
+  public static List<AnimalDTO> GetZooAnimals(IFileReader reader)
   {
     return new ConsumptionCalculator(reader).ZooAnimals();
   }

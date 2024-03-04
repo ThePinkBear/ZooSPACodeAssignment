@@ -1,7 +1,7 @@
 public class ConsumptionCalculator : IConsumptionCalculator
 {
-  private List<Individual> _individuals;
-  private List<Animal> _animals;
+  private List<Animal> _individuals;
+  private List<AnimalDietInformation> _animals;
   private List<Price> _prices;
 
   
@@ -11,15 +11,15 @@ public class ConsumptionCalculator : IConsumptionCalculator
     _animals = reader.ReadAnimals();
     _prices = reader.ReadPrices();
   }
-  public List<IndividualDTO> ZooAnimals()
+  public List<AnimalDTO> ZooAnimals()
   {
     
-    var animalDTOs = new List<IndividualDTO>();
+    var animalDTOs = new List<AnimalDTO>();
     foreach (var individual in _individuals)
     {
       var animal = _animals.FirstOrDefault(a => a.Species == individual.Species)!;
       var cost = CalculateIndividualCost(_prices, individual, animal);
-      var animalDTO = new IndividualDTO
+      var animalDTO = new AnimalDTO
       {
         Id = Guid.NewGuid(),
         Species = individual.Species,
@@ -41,7 +41,7 @@ public class ConsumptionCalculator : IConsumptionCalculator
     }
     return Math.Round(totalCost, 2);
   }
-  public double CalculateIndividualCost(List<Price> prices, Individual individual, Animal animal)
+  public double CalculateIndividualCost(List<Price> prices, Animal individual, AnimalDietInformation animal)
   {
     var cost = animal.Diet switch
     {
@@ -55,7 +55,7 @@ public class ConsumptionCalculator : IConsumptionCalculator
     return cost;
   }
 
-  private double OmnivoreConsumption(Individual individual, Animal animal, double percentage)
+  private double OmnivoreConsumption(Animal individual, AnimalDietInformation animal, double percentage)
   {
     return individual.Weight * animal.Consumption * (percentage / 100.00);
   }

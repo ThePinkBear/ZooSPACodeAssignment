@@ -1,6 +1,6 @@
 public interface IConsumptionCalculator
 {
-  public List<IndividualDTO> ZooAnimals();
+  public List<AnimalDTO> ZooAnimals();
   public double CalculateTotalCost();
-  public double CalculateIndividualCost(List<Price> prices, Individual individual, Animal animal);
+  public double CalculateIndividualCost(List<Price> prices, Animal individual, AnimalDietInformation animal);
 }

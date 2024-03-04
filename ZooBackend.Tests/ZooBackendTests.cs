@@ -65,21 +65,21 @@ public class ZooBackendTests
   {
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     // Arrange
-    var animal = new Animal
+    var animal = new AnimalDietInformation
     {
       Species = "Lion",
       Consumption = 0.10,
       Diet = "meat",
       MeatPercentage = 100
     };
-    var animal2 = new Animal
+    var animal2 = new AnimalDietInformation
     {
       Species = "Giraffe",
       Consumption = 0.10,
       Diet = "fruit",
       MeatPercentage = 0
     };
-    var animal3 = new Animal
+    var animal3 = new AnimalDietInformation
     {
       Species = "Piranha",
       Consumption = 0.10,
@@ -103,12 +103,12 @@ public class ZooBackendTests
     var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
     var _calculator = new ConsumptionCalculator(_reader);
 
-    var individual = new Individual
+    var individual = new Animal
     {
       Species = "Lion",
       Weight = 160
     };
-    var animal = new Animal
+    var animal = new AnimalDietInformation
     {
       Species = "Lion",
       Consumption = 0.10,
@@ -135,12 +135,12 @@ public class ZooBackendTests
     // Arrange
     var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
     var _calculator = new ConsumptionCalculator(_reader);
-    var individual = new Individual
+    var individual = new Animal
     {
       Species = "Giraffe",
       Weight = 160
     };
-    var animal = new Animal
+    var animal = new AnimalDietInformation
     {
       Species = "Giraffe",
       Consumption = 0.10,
@@ -171,13 +171,13 @@ public class ZooBackendTests
       new Price { Food = "Meat", Cost = 12.56 },
       new Price { Food = "Fruit", Cost = 5.60 }
     };
-    var individual = new Individual
+    var individual = new Animal
     {
       Name = "Conny",
       Species = "Wolf",
       Weight = 70
     };
-    var animal = new Animal
+    var animal = new AnimalDietInformation
     {
       Species = "Wolf",
       Consumption = 0.07,

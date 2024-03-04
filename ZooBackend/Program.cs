@@ -24,7 +24,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors("AllowZooFrontend");
 
-
 app.MapGet("/ZooAnimals", () =>
 {
   return GetZooAnimals(new FileReader(@"./Data/animals.csv", @"./Data/prices.txt", @"./Data/zoo.xml"));
@@ -38,6 +37,5 @@ app.MapGet("/ZooPrices", () =>
 })
 .WithName("GetPrices")
 .WithOpenApi();
-
 
 app.Run();
