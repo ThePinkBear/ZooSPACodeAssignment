@@ -30,4 +30,4 @@ npm i
 npm run dev
 ```
 
-*The terminal will point at a localhost address, cmd or ctrl click the link in the terminal and you will see the application.*
+*The terminal will point at a localhost address, cmd or ctrl click the link in the terminal or simply head to URL: http://localhost:5173/ and you will see the application.*
