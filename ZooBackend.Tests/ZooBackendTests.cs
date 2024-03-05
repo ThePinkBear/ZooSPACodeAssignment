@@ -208,7 +208,7 @@ public class ZooBackendTests
     var _calculator = new AnimalHandler(_reader);
 
     // Act
-    var actual = _calculator.ZooAnimals();
+    var actual = _calculator.GetAnimalDataTransferObjects();
 
     // Assert
     Assert.Equal(14, actual.Count);
@@ -225,7 +225,7 @@ public class ZooBackendTests
     var _calculator = new AnimalHandler(_reader);
 
     // Act
-    var actual = _calculator.ZooAnimals();
+    var actual = _calculator.GetAnimalDataTransferObjects();
 
     // Assert
     Assert.Equal(200.96, actual[0].Cost);
@@ -240,7 +240,7 @@ public class ZooBackendTests
     var _calculator = new AnimalHandler(_reader);
 
     // Act
-    var actual = _calculator.ZooAnimals();
+    var actual = _calculator.GetAnimalDataTransferObjects();
 
     // Assert
     Assert.Equal(160, actual[0].Weight);
@@ -255,7 +255,7 @@ public class ZooBackendTests
     var _calculator = new AnimalHandler(_reader);
 
     // Act
-    var actual = _calculator.ZooAnimals();
+    var actual = _calculator.GetAnimalDataTransferObjects();
 
     // Assert
     Assert.Equal("Carnivore", actual[0].Diet);

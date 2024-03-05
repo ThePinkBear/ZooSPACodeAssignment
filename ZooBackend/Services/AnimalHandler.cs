@@ -10,9 +10,10 @@ public class AnimalHandler : IAnimalHandler
     _speciesInformation = reader.ReadSpeciesInformation();
     _prices = reader.ReadPrices();
   }
-  public List<AnimalDTO> ZooAnimals()
+  public List<AnimalDTO> GetAnimalDataTransferObjects()
   {
-    
+    if (_animals.Count == 0 || _prices.Count == 0 || _speciesInformation.Count == 0) return [];
+
     var animalDTOs = new List<AnimalDTO>();
     foreach (var animal in _animals)
     {
@@ -32,18 +33,19 @@ public class AnimalHandler : IAnimalHandler
     }
     return animalDTOs;
   }
+
   public double CalculateTotalCost()
   {
-    var totalCost = 0.0;
+    if (_animals.Count == 0) return 0.0;
 
-    foreach (var animal in _animals)
-    {
-      totalCost += _speciesInformation.FirstOrDefault(a => a.Species == animal.Species)!.CalculateIndividualCost(_prices, animal);
-    }
+    var totalCost = _animals.Sum(animal => _speciesInformation.FirstOrDefault(a => a.Species == animal.Species)?.CalculateIndividualCost(_prices, animal) ?? 0.0);
+
     return Math.Round(totalCost, 2);
   }
+
   public double CalculateMeatCost()
   {
+    if (_animals.Count == 0) return 0.0;
     var totalMeatCost = 0.0;
     var meatEaters = SortByDiet("meat");
 
@@ -57,6 +59,7 @@ public class AnimalHandler : IAnimalHandler
   }
   public double CalculateFruitCost()
   {
+    if (_animals.Count == 0) return 0.0;
     var totalFruitCost = 0.0;
     var fruitEaters = SortByDiet("fruit");
 
@@ -68,18 +71,13 @@ public class AnimalHandler : IAnimalHandler
     }
     return Math.Round(totalFruitCost, 2);
   }
-  private List<Animal> SortByDiet(string diet)
-  {
-    var SelectedAnimals = from a in _animals
-                      join s in _speciesInformation on a.Species equals s.Species
-                      where s.Diet == diet || s.Diet == "both"
-                      select a;
-    return SelectedAnimals.ToList();
-  }
-  private double CalculateDietCost(Animal animal)
-  {
-    return _speciesInformation
-              .FirstOrDefault(a => a.Species == animal.Species)!
-              .CalculateIndividualCost(_prices, animal);
-  }
+  private List<Animal> SortByDiet(string diet) => (from a in _animals
+                                                   join s in _speciesInformation on a.Species equals s.Species
+                                                   where s.Diet == diet || s.Diet == "both"
+                                                   select a).ToList();
+
+  private double CalculateDietCost(Animal animal) => _speciesInformation
+                  .FirstOrDefault(a => a.Species == animal.Species)!
+                  .CalculateIndividualCost(_prices, animal);
+
 }
