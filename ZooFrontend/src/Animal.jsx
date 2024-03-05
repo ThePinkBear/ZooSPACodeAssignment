@@ -1,6 +1,6 @@
-import './Individual.css'
+import './Animal.css'
 
-function Individual({animal}) {
+function Animal({animal}) {
 
   return (
     <>
@@ -15,4 +15,4 @@ function Individual({animal}) {
   )
 }
 
-export default Individual
+export default Animal

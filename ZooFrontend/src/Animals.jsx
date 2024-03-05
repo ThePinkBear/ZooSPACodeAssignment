@@ -1,5 +1,4 @@
-import Individual from './Individual'
-
+import Animal from "./Animal"
 
 function Animals({animals}) {
 
@@ -7,7 +6,7 @@ function Animals({animals}) {
     <>
       <section>
         {animals.map(animal => (
-          <Individual key={animal.id} animal={animal}/>
+          <Animal key={animal.id} animal={animal}/>
         ))}
       </section>
     </>

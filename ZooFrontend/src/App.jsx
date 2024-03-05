@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import Animals from './Animals'
 import Navbar from './Navbar'
