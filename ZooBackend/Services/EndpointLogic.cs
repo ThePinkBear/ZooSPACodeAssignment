@@ -1,6 +1,6 @@
 public static class EndPointLogic
 {
-  public static double GetPrices(IFileReader reader)
+  public static double GetTotalCost(IFileReader reader)
   {
     return new AnimalHandler(reader).CalculateTotalCost();
   }

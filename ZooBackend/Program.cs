@@ -1,5 +1,3 @@
-using static EndPointLogic;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
@@ -13,35 +11,21 @@ builder.Services.AddCors(options =>
            .AllowAnyHeader();
   });
 });
-var paths = new string[] { @"./Data/animals.csv", @"./Data/prices.txt", @"./Data/zoo.xml" };
+
 var app = builder.Build();
+var reader = new FileReader(@"./Data/animals.csv", @"./Data/prices.txt", @"./Data/zoo.xml");
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+  app.UseSwagger();
+  app.UseSwaggerUI();
 }
 
 app.UseCors("AllowZooFrontend");
 
-app.MapGet("/ZooAnimals", () =>
-{
-  return GetZooAnimals(new FileReader(paths[0], paths[1], paths[2]));
-});
-
-app.MapGet("/ZooTotalCost", () =>
-{
-  return GetPrices(new FileReader(paths[0], paths[1], paths[2]));
-});
-
-app.MapGet("/ZooMeatCost", () =>
-{
-  return GetMeatCost(new FileReader(paths[0], paths[1], paths[2]));
-});
-
-app.MapGet("/ZooFruitCost", () =>
-{
-  return GetFruitCost(new FileReader(paths[0], paths[1], paths[2]));
-});
+app.MapGet("/ZooAnimals", () => { return GetZooAnimals(reader); });
+app.MapGet("/ZooTotalCost", () => { return GetTotalCost(reader); });
+app.MapGet("/ZooMeatCost", () => { return GetMeatCost(reader); });
+app.MapGet("/ZooFruitCost", () => { return GetFruitCost(reader); });
 
 app.Run();
