@@ -4,7 +4,7 @@ function Animal({animal}) {
 
   return (
     <>
-      <article className='animalCard'>
+      <article className='animalCard' alt={`${animal.name} the ${animal.species}`}>
         <img src={animal.image} alt={`${animal.name} the ${animal.species}`} />
         <h3>{animal.name}</h3>
         <h4>{animal.species}, Weight: {animal.weight}kg</h4>
