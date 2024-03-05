@@ -5,7 +5,6 @@ public class Animal
   public string Species { get; set; } = default!;
   public string Name { get; set; } = default!;
   public double Weight { get; set; }
-
   public string Image => Species switch {
     "Lion" => Name != "Nala" 
       ? "https://images.pexels.com/photos/18111908/pexels-photo-18111908/free-photo-of-lion-at-the-zoo.jpeg" 

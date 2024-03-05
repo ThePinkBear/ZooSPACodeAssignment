@@ -86,12 +86,8 @@ public class ZooBackendTests
       Diet = "both",
       MeatPercentage = 50
     };
-
-    // Act
-    var actual = animal.FruitPercentage;
-
     // Assert
-    Assert.Equal(0, actual);
+    Assert.Equal(0, animal.FruitPercentage);
     Assert.Equal(100, animal2.FruitPercentage);
     Assert.Equal(50, animal3.FruitPercentage);
   }

@@ -8,6 +8,14 @@ public class SpeciesDietInformation
   public string Diet { get; set; } = default!;
   public int MeatPercentage { get; set; }
   public int FruitPercentage { get => FruitPercentageCalculator(); }
+  public string DietType => Diet switch
+  {
+    "meat" => "Carnivore",
+    "fruit" => "Herbivore",
+    "both" => "Omnivore",
+    _ => ""
+  };
+
   private int FruitPercentageCalculator()
   {
     return Diet switch
@@ -15,7 +23,7 @@ public class SpeciesDietInformation
       "meat" => 0,
       "fruit" => 100,
       "both" => 100 - MeatPercentage,
-      _ => throw new ArgumentOutOfRangeException()
+      _ => 0
     };
   }
   public double CalculateIndividualCost(List<Price> prices, Animal animal)
@@ -24,7 +32,7 @@ public class SpeciesDietInformation
     {
       "meat" => animal.Weight * Consumption * prices[0].Cost,
       "fruit" => animal.Weight * Consumption * prices[1].Cost,
-      "both" => (OmnivoreConsumption(animal, MeatPercentage) * prices[0].Cost) + 
+      "both" => (OmnivoreConsumption(animal, MeatPercentage) * prices[0].Cost) +
                 (OmnivoreConsumption(animal, FruitPercentage) * prices[1].Cost),
       _ => throw new ArgumentOutOfRangeException()
     };
@@ -35,15 +43,5 @@ public class SpeciesDietInformation
   private double OmnivoreConsumption(Animal animal, double percentage)
   {
     return animal.Weight * Consumption * (percentage / 100.00);
-  }
-  public string DietType()
-  {
-    return Diet switch
-    {
-      "meat" => "Carnivore",
-      "fruit" => "Herbivore",
-      "both" => "Omnivore",
-      _ => throw new ArgumentOutOfRangeException()
-    };
   }
 }

@@ -24,7 +24,7 @@ public class AnimalHandler : IAnimalHandler
         Id = Guid.NewGuid(),
         Species = animal.Species,
         Name = animal.Name,
-        Diet = species.DietType() ?? "",
+        Diet = species.DietType,
         Weight = animal.Weight,
         Cost = Math.Round(species.CalculateIndividualCost(_prices, animal), 2),
         Image = animal.Image
