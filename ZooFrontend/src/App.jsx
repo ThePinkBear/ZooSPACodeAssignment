@@ -26,7 +26,13 @@ function App() {
     fetch('http://localhost:5068/ZooFruitCost')
       .then((response) => response.json())
       .then((data) => setFruitCost(data))
+      const element = document.getElementById('background');
+    if(element){
+      element.style.backgroundImage = `url("https://images.pexels.com/photos/4534200/pexels-photo-4534200.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")`;
+    }
   },[]);
+
+ 
 
   return (
   <>

@@ -25,7 +25,8 @@ public class AnimalHandler : IAnimalHandler
         Name = animal.Name,
         Diet = species.DietType() ?? "",
         Weight = animal.Weight,
-        Cost = Math.Round(species.CalculateIndividualCost(_prices, animal), 2)
+        Cost = Math.Round(species.CalculateIndividualCost(_prices, animal), 2),
+        Image = animal.Image
       };
       animalDTOs.Add(animalDTO);
     }

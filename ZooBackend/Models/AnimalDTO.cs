@@ -6,4 +6,5 @@ public class AnimalDTO
   public string Diet { get; set; } = default!;
   public double Weight { get; set; }
   public double Cost { get; set; }
+  public string Image { get; set; } = default!;
 }
