@@ -47,6 +47,9 @@ public class AnimalHandler : IAnimalHandler
 
     private List<Animal> SortByDiet(string diet)
     {
-        return _animals.Where(animal => _speciesInformation.ContainsKey(animal.Species) && (_speciesInformation[animal.Species].Diet == diet || _speciesInformation[animal.Species].Diet == "both")).ToList();
+        return _animals
+                  .Where(animal => _speciesInformation
+                  .ContainsKey(animal.Species) && (_speciesInformation[animal.Species].Diet == diet || _speciesInformation[animal.Species].Diet == "both"))
+                  .ToList();
     }
 }

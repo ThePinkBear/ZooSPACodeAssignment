@@ -59,7 +59,7 @@ public class FileReader : IFileReader
   }
   public List<Animal> ReadAnimals()
   {
-    var individuals = new List<Animal>();
+    var animals = new List<Animal>();
 
     var content = File.ReadAllText(_individualPath);
     var doc = XDocument.Parse(content);
@@ -72,7 +72,7 @@ public class FileReader : IFileReader
       
       foreach (var individual in animal.Elements())
       {
-        individuals.Add(new Animal
+        animals.Add(new Animal
         {
           Species = species,
           Name = individual.Attribute("name")!.Value,
@@ -80,6 +80,6 @@ public class FileReader : IFileReader
         });
       }
     }
-    return individuals;
+    return animals;
   }
 }
