@@ -39,6 +39,7 @@ section {
   display: grid;
   justify-content: center;
   grid-template-columns: auto;
+  width: 90%;
 }
 
 @media (min-width: 576px) {
@@ -69,8 +70,7 @@ section {
       font-size: 1.5rem;
   }
   section {
-    grid-template-columns: auto auto auto auto auto auto;
-    width: 90%;
+    grid-template-columns: auto auto auto auto auto;
   }
 }
 

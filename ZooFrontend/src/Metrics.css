@@ -35,7 +35,7 @@ text {
 }
 @media screen and (min-width: 992px) {
   .metrics {
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto;
   }
   .chartArticle {
     margin: 1.5em;

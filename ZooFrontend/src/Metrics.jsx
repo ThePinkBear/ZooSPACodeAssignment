@@ -68,6 +68,7 @@ function Metrics ({ animals, meatCost, fruitCost }) {
           width="100%"
           height="100%"
           options={{
+            legend: 'none',
             backgroundColor: 'transparent',
             colors: ['#e0440e', '#32692f', '#2d3866'],
             is3D: true
