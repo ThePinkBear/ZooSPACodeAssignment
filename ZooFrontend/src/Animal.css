@@ -4,10 +4,10 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  border: 0.8px solid #000;
   border-radius: 0.5em;
   margin: 0.1em;
   cursor: pointer;
+  box-shadow: 0 0 0.2em #000;
 }
 .animalCard:hover {
   box-shadow: 0 0 0.5em #000;

@@ -39,39 +39,73 @@ function Metrics ({ animals, meatCost, fruitCost }) {
           data={animalData}
           width= "100%"
           height="100%"
+          options={{
+            legend: 'none',
+            backgroundColor: 'transparent',
+            colors: ['#32692f'],
+            fontSize: 18,
+            textStyle: {
+              color: '#FFF'
+            },
+            hAxis: {
+              textStyle: {
+                color: '#FFF',
+              },
+              color: '#FFF',
+              title: 'Animals'
+            },
+            vAxis: {
+              title: 'Weight (Kg)'
+            }
+          }}
         />
         </article>
         <article className='chartArticle'>
-        <h4>Animal Diet Ratio:</h4>
-        <Chart
-        chartType="PieChart"
-        data={dietData}
-        width="100%"
-        height="100%"
-        options={{
-          is3D: true,
-        }}
-      />
-      </article>
-      <article className='chartArticle'>
-        <h4>Cost of Meat vs Fruit:</h4>
-        <Chart
-          chartType="ColumnChart"
-          data={costData}
+          <h4>Animal Diet Ratio:</h4>
+          <Chart
+          chartType="PieChart"
+          data={dietData}
           width="100%"
           height="100%"
           options={{
-            chartArea: { width: '50%' },
-            hAxis: {
-              title: 'Cost',
-            },
-            vAxis: {
-              title: 'Item',
-            },
+            backgroundColor: 'transparent',
+            colors: ['#e0440e', '#32692f', '#2d3866'],
+            is3D: true
           }}
-        />
-      </article>
-    </section>
+          />
+        </article>
+        <article className='chartArticle'>
+          <h4>Cost of Meat vs Fruit:</h4>
+          <Chart
+            chartType="ColumnChart"
+            data={costData}
+            width="100%"
+            height="100%"
+            options={{
+              legend: 'none',
+              backgroundColor: 'transparent',
+              colors: ['#32692f'],
+              chartArea: { width: '60%' },
+              fontSize: 18,
+              textStyle: {
+                color: '#FFF'
+              },
+              hAxis: {
+                textStyle:{
+                  color: '#FFF',
+                  fontSize: 16
+                }
+              },
+              vAxis: {
+                textStyle:{
+                  color: '#FFF',
+                  fontSize: 16
+                }
+              },
+            }}
+          />
+        </article>
+      </section>
     </>
   );
 }
