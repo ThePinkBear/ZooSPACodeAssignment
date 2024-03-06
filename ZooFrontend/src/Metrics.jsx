@@ -3,9 +3,10 @@ import { Chart } from 'react-google-charts';
 import './Metrics.css';
 
 
-function Metrics ({ animals }) {
+function Metrics ({ animals, meatCost, fruitCost }) {
   const [animalData, setAnimalData] = useState([["Name", "Weight"]]);
   const [dietData, setDietData] = useState([["Diet", "Count"]]);
+  const [costData, setCostData] = useState([["Item", "Cost"], ["Meat", 0], ["Fruit", 0]]);
 
   const populateAnimalsByWeight = () => {
     const header = [["Name", "Kilos"]];
@@ -25,6 +26,7 @@ function Metrics ({ animals }) {
   useEffect(() => {
     populateAnimalsByWeight();
     populateDietData();
+    setCostData([["Item", "Cost"], ["Meat", meatCost], ["Fruit", fruitCost]]);
   }, [animals]);
 
   return (
@@ -35,8 +37,8 @@ function Metrics ({ animals }) {
         <Chart
           chartType="ScatterChart"
           data={animalData}
-          width= "90%"
-          height="50%"
+          width= "100%"
+          height="100%"
         />
         </article>
         <article className='chartArticle'>
@@ -44,12 +46,30 @@ function Metrics ({ animals }) {
         <Chart
         chartType="PieChart"
         data={dietData}
-        width="90%"
-        height="50%"
+        width="100%"
+        height="100%"
         options={{
           is3D: true,
         }}
       />
+      </article>
+      <article className='chartArticle'>
+        <h4>Cost of Meat vs Fruit:</h4>
+        <Chart
+          chartType="ColumnChart"
+          data={costData}
+          width="100%"
+          height="100%"
+          options={{
+            chartArea: { width: '50%' },
+            hAxis: {
+              title: 'Cost',
+            },
+            vAxis: {
+              title: 'Item',
+            },
+          }}
+        />
       </article>
     </section>
     </>

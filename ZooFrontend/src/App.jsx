@@ -47,7 +47,7 @@ function App() {
         <Route>
           <Route path="/" element={<CostInformation cost={cost} meatCost={meatCost} fruitCost={fruitCost} />} />
           <Route path="/animals" element={<Animals animals={animals} />} />
-          <Route path="/metrics" element={<Metrics animals={animals}/>} />
+          <Route path="/metrics" element={<Metrics animals={animals} meatCost={meatCost} fruitCost={fruitCost}/>} />
         </Route>
       </Routes>
     </main>
