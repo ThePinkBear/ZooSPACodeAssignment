@@ -1,13 +1,16 @@
+import './CostInformation.css'
 
 function CostInformation({cost, meatCost, fruitCost}) {
 
   return (
     <>
-      <h2>Zoo Feeding App</h2>
-      <h3>Current Cost of feeding the animals:</h3>
-      <h2>${cost} per day.</h2>
-      <h3>Cost by food source:</h3>
-      <h3>Meat: ${meatCost}, Fruit ${fruitCost}</h3>
+      <section className='costInfo'>
+        <h1>Zoo Feeding App</h1>
+        <h3>Current Cost of feeding the animals:</h3>
+        <h1>${cost} per day.</h1>
+        <h3>Cost by food source:</h3>
+        <h2>Meat: ${meatCost}, Fruit ${fruitCost}</h2>
+      </section>
     </>
   )
 }

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import Animals from './Animals'
 import Navbar from './Navbar'
 import CostInformation from './CostInformation'
+import Metrics from './Metrics'
 
 function App() {
   const [animals, setAnimals] = useState([])
@@ -46,6 +47,7 @@ function App() {
         <Route>
           <Route path="/" element={<CostInformation cost={cost} meatCost={meatCost} fruitCost={fruitCost} />} />
           <Route path="/animals" element={<Animals animals={animals} />} />
+          <Route path="/metrics" element={<Metrics animals={animals}/>} />
         </Route>
       </Routes>
     </main>

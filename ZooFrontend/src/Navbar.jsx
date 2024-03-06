@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Navbar.css'; // Make sure to create this CSS file
+import './Navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,6 +17,7 @@ const Navbar = () => {
           <ul className={`nav-links`}>
             <li><Link to="/" onClick={() => setIsOpen(false)}>Home</Link></li>
             <li><Link to="/animals" onClick={() => setIsOpen(false)}>Animals</Link></li>
+            <li><Link to="/metrics" onClick={() => setIsOpen(false)}>Metrics</Link></li>
           </ul>
         </section>
       </nav>

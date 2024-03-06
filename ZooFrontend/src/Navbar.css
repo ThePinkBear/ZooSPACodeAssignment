@@ -29,11 +29,11 @@ nav {
   padding: 0;
 }
 .nav-links li {
-  padding: 10px 20px; /* Adjust padding as needed for better spacing */
+  padding: 10px 20px;
 }
 .nav-links a {
   text-decoration: none;
-  color: var(--primary-color); /* Adjust link color as needed */
+  color: var(--primary-color);
 }
 
 @media (min-width: 768px) {

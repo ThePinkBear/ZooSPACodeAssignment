@@ -8,11 +8,11 @@ _ {
   --secondary-color: #3d6d52;
   --ternary-color: #33312f;
 }
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+main {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+
 }
 body {
   color: var(--primary-color);
@@ -24,13 +24,17 @@ body {
   min-height: 100vh;
   background-size: cover;
 }
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+}
 h2 {
   font-size: 1.5rem;
 }
 
 h3 {
   font-size: 1rem;
-  line-height: 1.6;
+  text-align: center;
 }
 section {
   display: grid;
@@ -54,8 +58,6 @@ section {
       font-size: 1.25rem;
   }
   section {
-    display: grid;
-    justify-content: center;
     grid-template-columns: auto auto auto auto;
   }
 }
@@ -68,8 +70,6 @@ section {
       font-size: 1.5rem;
   }
   section {
-    display: grid;
-    justify-content: center;
     grid-template-columns: auto auto auto auto auto auto;
   }
 }
