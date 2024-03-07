@@ -13,7 +13,8 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
-var reader = new FileReader(@"./Data/animals.csv", @"./Data/prices.txt", @"./Data/zoo.xml");
+IFileReader reader = new FileReader(@"./Data/animals.csv", @"./Data/prices.txt", @"./Data/zoo.xml");
+IAnimalHandler handler = new AnimalHandler(reader);
 
 if (app.Environment.IsDevelopment())
 {
@@ -24,12 +25,12 @@ if (app.Environment.IsDevelopment())
 app.UseCors("AllowZooFrontend");
 
 app.MapGet("/ZooAnimals", () 
-  =>  new AnimalHandler(reader).GetAnimalDataTransferObjects());
+  =>  handler.GetAnimalDataTransferObjects());
 app.MapGet("/ZooTotalCost", () 
-  => new AnimalHandler(reader).CalculateTotalCost());
+  => handler.CalculateTotalCost());
 app.MapGet("/ZooMeatCost", () 
-  => new AnimalHandler(reader).CalculateMeatCost());
+  => handler.CalculateMeatCost());
 app.MapGet("/ZooFruitCost", () 
-  => new AnimalHandler(reader).CalculateFruitCost());
+  => handler.CalculateFruitCost());
 
 app.Run();
