@@ -29,29 +29,29 @@ function App() {
       .then((data) => setFruitCost(data))
       const element = document.getElementById('background');
     if(element){
-      element.style.backgroundImage = `url("https://images.pexels.com/photos/7641223/pexels-photo-7641223.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")`;
+      element.style.backgroundImage = `url("https://images.pexels.com/photos/4534200/pexels-photo-4534200.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")`;
     }
   },[]);
 
  
 
-  return (
-  <>
-    <header>
-      <nav>
-        <Navbar />
-      </nav>
-    </header>
-    <main>
-      <Routes>
-        <Route>
-          <Route path="/" element={<CostInformation cost={cost} meatCost={meatCost} fruitCost={fruitCost} />} />
-          <Route path="/animals" element={<Animals animals={animals} />} />
-          <Route path="/metrics" element={<Metrics animals={animals} meatCost={meatCost} fruitCost={fruitCost}/>} />
-        </Route>
-      </Routes>
-    </main>
-  </>
+return (
+    <>
+      <header>
+        <nav>
+          <Navbar />
+        </nav>
+      </header>
+      <main>
+        <Routes>
+          <Route>
+            <Route path="/" element={<CostInformation cost={cost} meatCost={meatCost} fruitCost={fruitCost} />} />
+            <Route path="/animals" element={<Animals animals={animals} />} />
+            <Route path="/metrics" element={<Metrics animals={animals} meatCost={meatCost} fruitCost={fruitCost}/>} />
+          </Route>
+        </Routes>
+      </main>
+    </>
   )
 }
 
