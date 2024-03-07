@@ -4,16 +4,16 @@ namespace ZooBackend.Tests;
 
 public class ZooBackendTests
 {
-  private readonly string _animalPath = @"../../../../ZooBackend/Data/animals.csv";
+  private readonly string _speciesInformationPath = @"../../../../ZooBackend/Data/animals.csv";
   private readonly string _pricePath = @"../../../../ZooBackend/Data/prices.txt";
-  private readonly string _individualPath = @"../../../../ZooBackend/Data/zoo.xml";
+  private readonly string _animalsPath = @"../../../../ZooBackend/Data/zoo.xml";
 
   [Fact]
   public void FileReader_should_read_Prices_file_correctly()
   {
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     // Arrange
-    var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
+    var _reader = new FileReader(_speciesInformationPath, _pricePath, _animalsPath);
     // Act
     var prices = _reader.ReadPrices();
 
@@ -29,7 +29,7 @@ public class ZooBackendTests
   {
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     // Arrange
-    var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
+    var _reader = new FileReader(_speciesInformationPath, _pricePath, _animalsPath);
 
     // Act
     var animals = _reader.ReadSpeciesInformation();
@@ -44,24 +44,24 @@ public class ZooBackendTests
     Assert.Equal(50, animals[5].MeatPercentage);
   }
   [Fact]
-  public void FileReader_should_read_Individuals_file_correctly()
+  public void FileReader_should_read_animals_file_correctly()
   {
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
 
     // Arrange
-    var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
+    var _reader = new FileReader(_speciesInformationPath, _pricePath, _animalsPath);
     // Act
-    var individuals = _reader.ReadAnimals();
+    var animals = _reader.ReadAnimals();
 
     // Assert
-    Assert.Equal(14, individuals.Count);
-    Assert.Equal("Lion", individuals[0].Species);
-    Assert.Equal(160, individuals[0].Weight);
-    Assert.Equal("Piranha", individuals[13].Species);
-    Assert.Equal(0.5, individuals[13].Weight);
+    Assert.Equal(14, animals.Count);
+    Assert.Equal("Lion", animals[0].Species);
+    Assert.Equal(160, animals[0].Weight);
+    Assert.Equal("Piranha", animals[13].Species);
+    Assert.Equal(0.5, animals[13].Weight);
   }
   [Fact]
-  public void Animal_should_calculate_fruit_percentage_correctly()
+  public void SpeciesDietInformation_should_calculate_fruit_percentage_correctly()
   {
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     // Arrange
@@ -122,7 +122,7 @@ public class ZooBackendTests
     Assert.Equal(200.96, Math.Round(actual, 2));
   }
   [Fact]
-  public void Animal_should_calculate_herbivore_consumption_correctly()
+  public void SpeciesDietInformation_should_calculate_herbivore_consumption_correctly()
   {
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
 
@@ -152,7 +152,7 @@ public class ZooBackendTests
     Assert.Equal(89.60, Math.Round(actual, 2));
   }
   [Fact]
-  public void Animal_should_calculate_omnivore_consumption_correctly()
+  public void SpeciesDietInformation_should_calculate_omnivore_consumption_correctly()
   {
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     // Arrange
@@ -186,7 +186,7 @@ public class ZooBackendTests
   {
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     // Arrange
-    var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
+    var _reader = new FileReader(_speciesInformationPath, _pricePath, _animalsPath);
     var _calculator = new AnimalHandler(_reader);
 
     // Act
@@ -200,7 +200,7 @@ public class ZooBackendTests
   {
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     // Arrange
-    var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
+    var _reader = new FileReader(_speciesInformationPath, _pricePath, _animalsPath);
     var _calculator = new AnimalHandler(_reader);
 
     // Act
@@ -217,7 +217,7 @@ public class ZooBackendTests
   {
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     // Arrange
-    var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
+    var _reader = new FileReader(_speciesInformationPath, _pricePath, _animalsPath);
     var _calculator = new AnimalHandler(_reader);
 
     // Act
@@ -232,7 +232,7 @@ public class ZooBackendTests
   {
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     // Arrange
-    var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
+    var _reader = new FileReader(_speciesInformationPath, _pricePath, _animalsPath);
     var _calculator = new AnimalHandler(_reader);
 
     // Act
@@ -247,7 +247,7 @@ public class ZooBackendTests
   {
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     // Arrange
-    var _reader = new FileReader(_animalPath, _pricePath, _individualPath);
+    var _reader = new FileReader(_speciesInformationPath, _pricePath, _animalsPath);
     var _calculator = new AnimalHandler(_reader);
 
     // Act

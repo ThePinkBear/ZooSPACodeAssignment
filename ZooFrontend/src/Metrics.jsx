@@ -48,14 +48,17 @@ function Metrics ({ animals, meatCost, fruitCost }) {
               color: '#FFF'
             },
             hAxis: {
-              textStyle: {
+              textStyle:{
                 color: '#FFF',
-              },
-              color: '#FFF',
-              title: 'Animals'
+                fontSize: 16,
+                title: 'Animal'
+              }
             },
             vAxis: {
-              title: 'Weight (Kg)'
+              textStyle:{
+                color: '#FFF',
+                fontSize: 16
+              }
             }
           }}
         />
