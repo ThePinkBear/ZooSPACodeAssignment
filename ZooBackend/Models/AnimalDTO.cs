@@ -1,3 +1,4 @@
+namespace ZooBackend;
 public class AnimalDTO
 {
   public Guid Id { get; set; }

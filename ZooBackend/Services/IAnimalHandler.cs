@@ -1,3 +1,4 @@
+namespace ZooBackend.Services;
 public interface IAnimalHandler
 {
   public List<AnimalDTO> GetAnimalDataTransferObjects();

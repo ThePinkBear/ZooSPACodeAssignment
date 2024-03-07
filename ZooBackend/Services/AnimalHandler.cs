@@ -1,3 +1,4 @@
+namespace ZooBackend.Services;
 public class AnimalHandler : IAnimalHandler
 {
     private List<Animal> _animals;

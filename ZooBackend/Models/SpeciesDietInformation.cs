@@ -1,4 +1,3 @@
-
 namespace ZooBackend;
 
 public class SpeciesDietInformation

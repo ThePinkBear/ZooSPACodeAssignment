@@ -1,5 +1,6 @@
 using System.Xml.Linq;
 
+namespace ZooBackend.Services;
 public class FileReader : IFileReader
 {
   private readonly string _animalPath = "";

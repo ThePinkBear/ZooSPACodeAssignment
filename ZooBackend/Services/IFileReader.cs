@@ -1,3 +1,4 @@
+namespace ZooBackend.Services;
 public interface IFileReader
 {
   List<SpeciesDietInformation> ReadSpeciesInformation();
