@@ -23,9 +23,13 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors("AllowZooFrontend");
 
-app.MapGet("/ZooAnimals", () =>  GetZooAnimals(reader));
-app.MapGet("/ZooTotalCost", () => GetTotalCost(reader));
-app.MapGet("/ZooMeatCost", () => GetMeatCost(reader));
-app.MapGet("/ZooFruitCost", () => GetFruitCost(reader));
+app.MapGet("/ZooAnimals", () 
+  =>  new AnimalHandler(reader).GetAnimalDataTransferObjects());
+app.MapGet("/ZooTotalCost", () 
+  => new AnimalHandler(reader).CalculateTotalCost());
+app.MapGet("/ZooMeatCost", () 
+  => new AnimalHandler(reader).CalculateMeatCost());
+app.MapGet("/ZooFruitCost", () 
+  => new AnimalHandler(reader).CalculateFruitCost());
 
 app.Run();
